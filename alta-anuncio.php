@@ -518,7 +518,16 @@ function cargaAmigos()
 	 });
 	  }
 	if(opcion==6){
-		console.log("quiere grupo");
+
+		$.ajax({
+						 type: "POST",
+						url:"<? echo $urlprincipal?>combo-grupos.php",
+	        	 success: function(data){
+								 $("#divAmigos").html(data);
+
+						 }
+     });
+
 	}
 
 
