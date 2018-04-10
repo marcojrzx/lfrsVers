@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>:: LOFERS ::</title>
+<link href="css/Estilos.css" rel="stylesheet" type="text/css">
+
+<!-- CSS para menu desplegable -->
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+
+<!-- CSS de WDD -->
+<link href="css/estiloswdd.css" rel="stylesheet" type="text/css">
+
+<!-- CSS para menu responsivo -->
+<link href="css/responsive-nav.css" rel="stylesheet" type="text/css">
+
+<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+<!--link href="css/nav.css" rel="stylesheet" type="text/css"-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+	<!-- JS PARA EL SLIDER -->
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script> <!-- Modernizr -->
+	<script src="js/jquery.bxslider.min.js"></script>
+
+	<script src="js/jquery.validate.js" type="text/javascript"></script>
+  	<script language="JavaScript" src="js/funciones_calendar.js"></script>
+	<script language="JavaScript" src="js/funciones.js"></script>
+  	<script language="JavaScript" src="js/codigo.js"></script>
+    <script language="JavaScript" src="js/responsive-nav.js"></script>
+
+
+<style type="text/css">
+    @media only screen and (max-width: 480px){
+        #templateColumns{
+            width:100% !important;
+        }
+
+        .templateColumnContainer{
+            display:block !important;
+            width:100% !important;
+        }
+
+        .columnImage{
+            height:auto !important;
+            max-width:480px !important;
+            width:100% !important;
+        }
+    }
+</style>
+
+</head>
+<body>
+asdfasdfas
+<div class="menuAux1">
+	<div class="ftPerfil"></div>
+
+	<div class="menu2">
+		<ul class="nav">
+			<li>
+				<a href="">
+				<span style="color:black">HOLA</span>
+                </a>
+				
+				<ul>
+						<li><a href="perfil.php">Mi perfil</a></li>
+						<li><a href="blog.php">Blog</a></li>
+                        <li><a href="todos-anuncios.php">Muro de anuncios</a></li>
+						<li><a href="anuncios.php">Todos mis anuncios</a></li>
+						<li><a href="mis-denuncias.php">Mis denuncias</a></li>
+                        <li><a href="autentificacion.php?logout=1">Cerrar sesión</a></li>
+                        <li><a href="cerrar-cuenta.php" style="color:red;">Borrar mi cuenta</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>              
+</div>
+
+	<nav class="nav-collapse">
+		<ul class="main ul-nav nav-der">
+			<li><a href="anuncios.php?t=1"><span>L1</span> Mis Perdidas</a></li>
+			<li><a href="anuncios.php?t=2"><span>L2</span> Mis Hallazgos (Empresa)</a></li>
+			<li><a href="anuncios.php?t=3"><span>L3</span> Mis Hallazgos (Persona)</a></li>
+			<li><a href="anuncios.php?t=4"><span>L4</span> Mis Avistamientos</a></li>
+			<li><a href="todos-anuncios.php">Muro de anuncios</a></li>
+		</ul>
+	</nav>
+
+</body>           
+
+<!-- LAS ANIMACIONES PERSONALES DEL SITIO -->
+<script src="js/animaciones.js"></script>
+<script>
+	var navigation = responsiveNav(".nav-collapse");
+</script>
+</html>

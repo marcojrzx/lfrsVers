@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.fdoPback {
+    height: 400px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.unPback {
+    background-image: url("https://red.org/wp-content/uploads/2015/10/product-cat-tech2.jpg");
+}
+.unPback2 {
+    background-image: url("https://red.org/wp-content/uploads/2015/11/ProductBanner_Apple_iPodTouch.jpg");
+}
+.unPback3 {
+    background-image: url("https://red.org/wp-content/uploads/2015/11/iPadSmartCoverBanner.jpg");
+}
+.unPback4 {
+    background-image: url("https://red.org/wp-content/uploads/2015/11/ProductBanner_Mophie_iPhone4JuicePackAir.jpg");
+}
+.txPback {
+    background-color: rgba(243, 224, 153, 0.8);
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 0px 0px 10px 10px;
+}
+.infoPback {
+    background-color: rgba(243, 224, 153, 0.8);
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    padding: 10px;
+    bottom: 0px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 10px 10px 0px 0px;
+}
+.infoPback a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #990275;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>:: LOFERS ::</title>
+
+<link href="css/Estilos.css" rel="stylesheet" type="text/css">
+<link href="css/nav.css" rel="stylesheet" type="text/css">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(function() {
+    var pull = $('#pull');
+    menu = $('nav ul');
+    menuHeight = menu.height();
+
+    $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+    });
+});
+
+$(window).resize(function(){
+    var w = $(window).width();
+    if(w > 320 && menu.is(':hidden')) {
+        menu.removeAttr('style');
+    }
+});
+</script>
+
+<style type="text/css">
+    @media only screen and (max-width: 480px){
+        #templateColumns{
+            width:100% !important;
+        }
+
+        .templateColumnContainer{
+            display:block !important;
+            width:100% !important;
+        }
+
+        .columnImage{
+            height:auto !important;
+            max-width:480px !important;
+            width:100% !important;
+        }
+    }
+</style>
+</head>
+ 
+<body background="images/Background.jpg" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="56" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/Header_Izq.png"></td>
+    <td width="100%" height="56" align="center" valign="middle" background="images/Top_Degradado.png"><a href="index.html"><img src="images/Logo3.png" border="0"></a></td>
+    <td><img src="images/Header_Der.png"></td>
+  </tr>
+</table>
+ 
+ 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="images/Pantalla_White.png">
+  <tr>
+    <td>
+
+
+<!--<table width="100%"  height="60" border="0" cellspacing="0" cellpadding="0" bgcolor="#51301D">
+					  <tr>
+					    <td align="right">
+<center><nav>
+    <ul>
+        <li><a href="#">Mis Perdidas L1</a></li>
+        <li><a href="#">Mis Hallazgos (Lugar) L2</a></li>
+		<li><a href="#">Mis Hallazgos (Persona) L3</a></li>
+        <li><a href="#">Mis Avistamientos L4</a></li>
+
+    </ul>
+    <a id="pull" href="#">MENU</a>
+</nav></center>
+
+</td>
+				      </tr>
+				  </table>-->
+                  
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" height="40">
+  <tr>
+    <td bgcolor="#000">&nbsp;&nbsp;<span class="User">Bienvenid@:</span><span class="User"> Nombre de Usuario &nbsp;&nbsp;/ <a href="#" class="Pie">Cerrar sesión</a></span></td>
+  </tr>
+  <tr>
+  <td height="3"></td>
+  </tr>
+</table>
+                 
+<table width="100%"  height="60" border="0" cellspacing="0" cellpadding="0" bgcolor="#51301D">
+					  <tr>
+					    <td align="right">
+<center>          
+<nav id="menu">
+        <a href="#" class="nav-mobile" id="nav-mobile"></a>
+        <ul>
+            <li><a href="#">Mis Perdidas L1</a></li>
+            <li><a href="#">Mis Hallazgos (Lugar) L2</a></li>
+            <li><a href="#">Mis Hallazgos (Persona) L3</a></li>
+            <li><a href="#">Mis Avistamientos L4</a></li>
+            
+      </ul><a id="pull" href="#">MENU</a>
+</nav></center>
+
+</td>
+				      </tr>
+				  </table>
+    </nav>
+<br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+    <center>
+    <a href="#"><img src="images/Btn_Anuncios.png" border="0"></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="images/Btn_Generar.png" border="0"></a>&nbsp;&nbsp;&nbsp;<a href="#"><img src="images/Btn_Eliminar.png" border="0"></a>
+    </center>
+    </td>
+  </tr>
+</table>
+<br><br>
+<br><br>
+
+</td>
+  </tr>
+</table>
+
+    <div id="content">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function() {
+
+        var btn_movil = $('#nav-mobile'),
+            menu = $('#menu').find('ul');
+
+        // Al dar click agregar/quitar clases que permiten el despliegue del menú
+        btn_movil.on('click', function (e) {
+            e.preventDefault();
+
+            var el = $(this);
+
+            el.toggleClass('nav-active');
+            menu.toggleClass('open-menu');
+        })
+
+    });
+</script>
+	
+	<aside>
+<center><img src="images/Slider.jpg" width="280" height="480" class="img"></center>
+</aside>
+ 
+ 
+	
+</div><br>
+
+<table width="100%" height="56" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/Footer_Izq.png"></td>
+    <td width="100%" height="56" background="images/Footer_Degradado.png">
+<center>
+<a href="privacidad.html" class="Pie">Privacidad</a>
+<a href="condiciones.html" class="Pie">Condiciones</a>
+<a href="ayuda.html" class="Pie">Ayuda</a>
+</center>
+</td>
+    <td><img src="images/Footer_Der.png"></td>
+  </tr>
+</table>
+
+
+</body>
+</html>

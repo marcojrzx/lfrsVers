@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* CSS Document */
+.Titulo {
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+font-size:36px;
+	color: #FFF;
+}
+.gran {
+	font-size: 48px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFF;
+}

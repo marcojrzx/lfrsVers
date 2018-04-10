@@ -1,0 +1,141 @@
+*{
+    /* margin: 0; */
+    padding: 0;
+}
+
+header, nav{
+    display: block;
+}
+
+/* Definimos un ancho 100% y una altura fija para nuestro menÃº */
+header{
+    background: #51301D;
+    height:60px;
+    position: relative;
+    width: 100%;
+    z-index: 2
+}
+
+
+/* Nuestro nav con id #menu lo flotaremos a la derecha*/
+#menu{float:none;}   
+
+    /* Quitamos estilos por defecto de el tag UL */
+    #menu ul{
+        list-style: none;
+        font-size: 14px;
+    }
+        
+        /* Centramos y ponemos los textos en mayuscula */
+        #menu li{
+           /* display: table-cell; */
+           float:left;
+           text-transform:capitalize;
+           text-align: center;
+           font-family:"Comic Sans MS", cursive;
+           font-size:14px;
+        }
+            
+            /* Damos estilo a nuestros enlaces */
+            #menu li a{
+                display: table-cell;
+                vertical-align: middle;
+                color: #fff;
+                text-decoration: none;
+                height: 60px;
+                /* line-height: 60px; */
+                padding: 0 26px;
+                box-sizing: content-box;
+            }
+             #menu li a span{
+    color: #ffe301;
+}
+            #menu li a:hover{
+                background: #362013;
+                color: #ffc700;
+            }
+    
+    /* Estilos #nav-mobile y lo ocultamos */
+    #nav-mobile{
+	display: none;
+	background: url(../images/nav.png) no-repeat center center;
+	float: right;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	right: 10;
+	top: 113px;
+	opacity: .6;
+	left: 320px;
+    }   
+        /* Agregaremos esta clase a #nav-mobile, cuando el menu mobile haya sido desplegado */
+        #nav-mobile.nav-active{
+            opacity: 1;
+        }
+
+/* Content */
+#content{
+    width: 80%;
+    margin: 60px 10%;
+    text-align: center;
+    overflow: hidden;
+}
+    h2{
+        font-size: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #624c3f;
+    }
+
+
+/*
+    MEDIA QUERY
+*/
+
+@media only screen and (max-width: 768px) {
+        
+    h2{font-size: 40px;}
+    
+    /* mostramos #nav-mobile */
+    #nav-mobile{ display: block; }
+
+    /* Fijamos nuestro nav en 100% ancho y dejamos de flotarlo  */
+    #menu{
+        width: 100%;
+        float: none;
+        padding-top: 60px;
+    }
+        /* Convertimos nuestra lista de enlaces en un menÃº horizontal */
+        #menu ul{
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.5);
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.5);
+            box-shadow: 0 1px 2px rgba(0,0,0,.5);
+            max-height: 0;
+            overflow: hidden;
+        }
+            /* estilos para los LI del menu */
+            #menu li{
+                background: #51301D;
+                border-bottom: 1px solid #ffffff;
+                float: none;
+            }
+
+            /* Quitamos el borde del ultimo item del menÃº */
+            #menu li:last-child{ border-bottom: 0;}
+                #menu li a{
+                    padding: 15px 0;
+                    height: auto;
+                    line-height: normal;
+                }
+                #menu li a:hover{background:#362013}
+
+        /* Agregamos una animaciÃ³n al despligue del menÃº */
+        #menu ul.open-menu{
+            max-height: 400px;
+            -webkit-transition: max-height .4s;
+            -moz-transition: max-height .4s;
+            -ms-transition: max-height .4s;
+            -o-transition: max-height .4s;
+            transition: max-height .4s;
+        }
+}

@@ -1,0 +1,171 @@
+<? 
+include("Auth/nxs_auth.inc.php");
+$aut = new nxs_auth();
+
+if (!$aut->revisar()){
+	header("Location: index.php?msg=3");
+}
+
+include("sad/funciones-bd.php");
+include("sad/funciones.php");
+include("thumb.php");
+
+
+$myvar = new db_mysql;
+$myvar->conectarBd();
+$html = new html;
+
+include "funciones-arriba.php";
+
+if($_POST['id_anuncio'])
+$_GET[id]=$_POST['id_anuncio'];
+
+if ($_POST['status']) {
+	
+		$sql='insert into comentariosAnuncio (id_cliente,id_anuncio,fecha,comentario,activo) values 
+		("'.$_SESSION[id_clienteLof4].'","'.$_POST['id_anuncio'].'","'.date("Y-m-d H:i:s").'","'.$_POST['comentario'].'",1)'; 
+	$myvar->execute($sql);
+	
+
+}
+
+$sql=" select * from anuncios where activo=1 and id_cliente=".$_SESSION[id_clienteLof4]."  and id_anuncio=".$_GET[id]." limit 1"; 
+	$anuncio=$myvar->get_arreglo($sql);
+	?>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="images/Pantalla_White.png">
+  <tr>
+    <td>
+
+
+<? include "menu-interno.php";?>	 
+<center><br>
+<?
+	$sql2=" select * from imagenesAnuncio where activo=1 and id_anuncio=".$anuncio[0][id_anuncio]." ";
+	$imagenes=$myvar->get_arreglo($sql2);
+	  
+	  for($i=0; $i<count($imagenes); $i++){
+	   ?><img src="imagenes/imagenesAnuncio/<? echo $imagenes[$i][imagen]?>" />
+      <? }//for
+      
+      $sql2=" select * from videos where activo=1 and id_anuncio=".$anuncio[0][id_anuncio]." ";
+	$imagenes=$myvar->get_arreglo($sql2);
+	  
+	  for($i=0; $i<count($imagenes); $i++){
+	   ?><img src="imagenes/videosAnuncio/<? echo $imagenes[$i][dsc_video]?>" />
+      <? }//for?>
+      
+      <p>Categoria:
+                <?
+			 $sql2=" select * from categoriasAnuncio where activo=1 and id_categoriaAnuncio=".$anuncio[0][id_categoriaAnuncio]." limit 1"; 
+			 $tipos=$myvar->get_arreglo($sql2);
+			 
+			 echo $tipos[0][dsc_categoriaAnuncio];
+			 ?>
+             </p>
+			<p>Tipo de Anuncio:
+                <?
+			 $sql2=" select * from tiposAnuncio where activo=1 and id_tipoAnuncio=".$anuncio[0][id_tipoAnuncio]." limit 1"; 
+			 $tipos=$myvar->get_arreglo($sql2);
+			 
+			 echo $tipos[0][dsc_tipoAnuncio];
+			 ?>
+             </p>
+            
+           <p>Titulo:<? echo $anuncio[0][titulo]?></p>
+ 			<p>Nombre:<? echo $anuncio[0][nombre]?></p>
+ 			<p>Caracteristicas:<? echo $anuncio[0][caracterisicas]?></p>
+ 			<p>Fecha Suceso:<? echo obtenerfecha($anuncio[0][fechaSuceso]);?></p>
+            
+        
+        _________________________ C O M E N T A R I O S ________________________
+         <p>
+         <?
+	        
+     $sql2=" select * from comentariosAnuncio where activo=1 and id_anuncio=".$anuncio[0][id_anuncio]." order by id_comentarioAnuncio desc ";
+	 $comentarios=$myvar->get_arreglo($sql2);
+	  
+	  for($i=0; $i<count($comentarios); $i++){
+	   ?>
+          CLIENTE QUIEN COMENTA:<? 
+	    $sql2=" select * from clientes where id_cliente=".$comentarios[$i][id_cliente]." limit 1 ";
+	$cli=$myvar->get_arreglo($sql2);
+	
+	   if($cli[0][ocultarNom]==1){// si lo quiere ocultar
+	echo $cli[0][nombre]." ".$cli[0][apellidos];
+	}else{
+	echo $cli[0][nick];
+	}?>
+        </p>
+        <p>FECHA=<? 
+		$date = date_create($comentarios[$i][fecha]);
+
+		echo date_format($date, 'Y-m-d');?>
+        </p>
+        <p>COMENTARIO=<? echo $comentarios[$i][comentario]?>
+          
+        </p>
+       
+<div id="dialog2<? echo $comentarios[$i][id_comentarioAnuncio];?>" class="dialogo"> <a href="<? echo $comentarios[$i][id_comentarioAnuncio];?>"  class="eliminarServicio">ELIMINAR</a></div>
+            
+             <p>________</p>
+            
+             <? }//for?>
+
+          
+          <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data" name="formulario" id="formulario" >
+ <p>Agregar Comentario:</p>
+             <p><input name="comentario" type="text" id="comentario"  placeholder="comentario" autofocus required="required" /></p>
+ 			 <input type="hidden" name="status"  id="status"/> <input type="hidden" name="id_anuncio"  id="id_anuncio" value="<? echo $_GET[id]?>"/>
+ <p id="bot"><input name="submit" type="submit" id="boton" value="Registrar" class="boton"  onclick="document.getElementById('status').value = '1';"/></p>
+		</form>   
+<br><br><br>
+
+</div>
+</center> 
+
+</td>
+  </tr>
+</table>
+<? include "funciones-abajo.php";?>
+
+  <script src="js/jquery.validate.js" type="text/javascript"></script>
+<script>
+
+//////ELIMINAR SERVICIOS
+		     var href2;
+ 
+        $('.eliminarServicio').click(function(e) {
+          e.preventDefault();
+          href2 = $(this).attr('href');
+          $('#dialog2'+href2).fadeIn(200, function() {
+            $(this).html('¿Realmente desea eliminar este registro?<br><br>');
+            $(this).append("<input type='button' id='ejecutar_proceso2' value='Aceptar'>");
+            $(this).append("<input type='button' id='cerrar_dialogo2' value='Cancelar'>");
+          });
+			
+        $('#dialog2'+href2).on("click", "#ejecutar_proceso2", function(event) {
+    ejecutar2(href2);
+});
+        $('#dialog2'+href2).on("click", "#cerrar_dialogo2", function(event) {
+    cerrar2(href2);
+});
+ });
+		
+		
+        function cerrar2(href2) {
+          $('#dialog2'+href2).fadeOut();
+        }
+ 
+        function ejecutar2(href2) {
+		 $.ajax({
+            type: "GET",
+            url: "eliminar-datos.php?borrar-comentario=1&id="+href2, 
+            success: function(data) {
+				 $('#dialog2'+href2).html(data);
+            }
+          });
+          $(".unica2"+href2).remove();
+        }
+		
+		
+</script>

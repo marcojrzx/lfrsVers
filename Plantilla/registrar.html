@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>:: LOFERS ::</title>
+
+<link href="css/Estilos.css" rel="stylesheet" type="text/css">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(function() {
+    var pull = $('#pull');
+    menu = $('nav ul');
+    menuHeight = menu.height();
+
+    $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+    });
+});
+
+$(window).resize(function(){
+    var w = $(window).width();
+    if(w > 320 && menu.is(':hidden')) {
+        menu.removeAttr('style');
+    }
+});
+</script>
+</head>
+ 
+<body background="images/Background.jpg" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="56" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/Header_Izq.png"></td>
+    <td width="100%" height="56" align="center" valign="middle" background="images/Top_Degradado.png"><a href="index.html"><img src="images/Logo3.png" border="0"></a></td>
+    <td><img src="images/Header_Der.png"></td>
+  </tr>
+</table>
+ 
+<div class="container">
+ 
+	<section>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="images/Pantalla_White.png">
+  <tr>
+    <td>
+<center><br>
+<form id="form-login" action="#" method="post">
+                    <p><label for="nombre">Nombre:</label></p>
+                        <input name="nombre" type="text" id="nombre" class="nombre" placeholder="Pon tu nombre" autofocus/ ></p>
+ 
+                    
+                    <p><label for="apellidos">Apellidos:</label></p>
+                        <input name="apellidos" type="text" id="apellidos" class="apellidos" placeholder="Pon tus apellidos" /></p>
+                   
+ 
+                    <p><label for="correo">Correo:</label></p>
+                        <input name="correo" type="text" id="correo" class="correo" placeholder="Pon tu mail" /></p>
+ 
+                    <p><label for="pass">Password:</label></p>
+                        <input name="pass" type="password" id="pass" class="pass" placeholder="Pon tu contraseña"/ ></p>
+ 
+                    <p><label for="repass">Repetir Password:</label></p>
+                        <input name="repass" type="password" id="repass" class="repass" placeholder="Repite contraseña" /></p>
+ 
+                    <p id="bot"><input name="submit" type="submit" id="boton" value="Registrar" class="boton"/></p>
+</form>
+<br><br><br>
+</center>
+</td>
+  </tr>
+</table>
+
+	  <br><br><br><br><br><br>
+	</section>
+	<aside>
+<center><img src="images/Slider.jpg" width="280" height="480" class="img"></center>
+</aside>
+ 
+	<footer>
+		
+	</footer>
+</div><br>
+<table width="100%" height="56" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/Footer_Izq.png"></td>
+    <td width="100%" height="56" background="images/Footer_Degradado.png"></td>
+    <td><img src="images/Footer_Der.png"></td>
+  </tr>
+</table>
+</body>
+</html>

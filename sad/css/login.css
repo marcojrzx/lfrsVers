@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+margin : 0;
+padding : 0;
+border : 0;
+vertical-align : baseline;
+font-family: 'Open Sans', sans-serif;
+}
+body{background: rgb(113, 6, 11);}
+.bt-login{
+    margin: 30px 0px;
+}
+
+.iniciosesion{
+    padding: 20px 50px 80px;
+    max-width: 300px;
+    margin: auto;
+    background-color: rgb(175, 17, 23);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 0px 0px 10px 11px;
+    border: 1px solid black;
+}
+.iniciosesion img{
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+.iniciosesion h1{
+    text-transform: uppercase;
+    font-size: 22px;
+}
+.iniciosesion h2{
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+#respuesta{}
+	a.bt-entra{
+    font-size: 13px;
+    background-color: rgb(236, 28, 36);
+    border: 1px solid black;
+    padding: 6px 30px;
+    display: inline-block;
+    line-height: 25px;
+    /* margin: 0px 5px; */
+    height: 25px;
+    color: whitesmoke;
+    text-decoration: none;
+    border-radius: 3px;
+}
+	
+	#pie{
+    color: rgb(208, 208, 208);
+    text-align: center;
+    padding: 30px 0px;
+    font-size: 13px;
+}
+	#pie p{}
+	#pie a{
+    text-decoration: none;
+    color: white;
+}
+	input[type="text"], input[type="password"] {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    border-color: #CFD2D4;
+    border-radius: 3px;
+    box-shadow: none;
+    box-sizing: border-box;
+    height: 35px;
+    line-height: 30px;
+    padding: 1px 15px 0 30px;
+    -webkit-appearance: none;
+    border: 1px solid #AFBCC8;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 13px;
+    vertical-align: bottom;
+    width: 100%;
+    margin: 5px 0px;
+}

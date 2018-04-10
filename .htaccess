@@ -1,0 +1,62 @@
+<IfModule mod_rewrite.c>
+
+    SetEnv HTTP_MOD_REWRITE On
+    RewriteEngine on
+    RewriteBase /
+RewriteCond %{HTTP_HOST} ^www.lofers.club [NC]
+RewriteRule (.*) http://lofers.club/$1 [R=301,L,QSA]
+
+
+Options +FollowSymLinks -Multiviews
+
+#RewriteRule ^index.html$ index.php
+#RewriteRule ^index.html$ intro.php
+
+
+RewriteRule ^aviso$ aviso.php [L]
+RewriteRule ^condiciones$ condiciones.php [L]
+RewriteRule ^ayuda$ ayuda.php [L]
+RewriteRule ^recuperacion$ recuperacion.php [L]
+RewriteRule ^registro$ registrar.php [L]
+RewriteRule ^queeslofers$ que.php [L]
+RewriteRule ^amigos$ amigos.php [L]
+RewriteRule ^perfil$ perfil.php [L]
+RewriteRule ^blog$ blog.php [L]
+RewriteRule ^muro-de-anuncios$ todos-anuncios.php [L]
+RewriteRule ^mi-sitio$ anuncios.php [L]
+RewriteRule ^mis-denuncias$ mis-denuncias.php [L]
+RewriteRule ^como-funciona$ como.php [L]
+RewriteRule ^consejos$ consejos.php [L]
+RewriteRule ^amigos$ amigos.php [L]
+RewriteRule ^agregar-amigos$ agregar-amigos.php [L]
+RewriteRule ^solicitudes-pendientes$ solicitudes-pendientes.php [L]
+RewriteRule ^cerrar-cuenta$ cerrar-cuenta.php [L]
+RewriteRule ^nuevo-anuncio$ alta-anuncio.php [L]
+RewriteRule ^anuncios-encontrados$ anuncios-encontrados.php [L]
+RewriteRule ^solicitudes-pendientes$ solicitudes-pendientes.php [L]
+RewriteRule ^registro$ registrar.php [L]
+RewriteRule ^contacto$ contacto.php [L]
+
+RewriteRule ^(.*)/(.*)/anuncio$ visor.php?id=$1&t=$2 [L]
+RewriteRule ^(.*)/anuncio$ visor.php?id=$1 [L]
+RewriteRule ^(.*)/(.*)/coincidencias$ coincidencias.php?idOri=$1&id=$2 [L]
+RewriteRule ^(.*)/coincidencias$ coincidencias.php?idOri=$1 [L]
+
+RewriteRule ^(.*)/modificar-anuncio$ modificar-anuncio.php?id=$1 [L]
+RewriteRule ^(.*)/muro-de-anuncios/.*$ todos-anuncios.php?id_cliente=$1 [L]
+RewriteRule ^(.*)/mi-sitio$ anuncios.php?t=$1 [L]
+RewriteRule ^(.*)/cerrar-sesion$ autentificacion.php?logout=$1 [L]
+RewriteRule ^(.*)/autenticacion$ logueo.php?id=$1 [L]
+
+
+
+RewriteRule ^(.*)/iniciando$ inicio.php?msg=$1 [L]
+RewriteRule ^cerrando$ cerrar.php [L]
+RewriteRule ^(.*)/recuperacion$ recuperacion.php?msg=$1 [L]
+RewriteRule ^mi-sitio/(.*)$ anuncios.php?msg=$1 [L]
+RewriteRule ^(.*)/(.*)/coincidencias/(.*)$ coincidencias.php?idOri=$1&id=$2&msg=$3 [L]
+RewriteRule ^(.*)/anuncio/(.*)$ visor.php?id=$1&msg=$2 [L]
+
+
+		
+</IfModule>

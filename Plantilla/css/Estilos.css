@@ -1,0 +1,203 @@
+body {
+	font-family: "Comic Sans MS", cursive;
+	color:#000;
+	font-size:14px;
+}
+
+.container {
+		width:96%;
+		margin:0px auto;
+	}
+	section,aside {
+		padding: 10px;
+		
+		-moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px;border-radius:5px;
+	}
+	section {
+		float: left;
+		width: 70%;
+	}
+	aside {
+		float: right;
+		width: 25%;
+	}
+	fm {
+		overflow: hidden;
+	}
+	fm ul {
+		list-style-type:none;
+		float:right;
+		padding:0px;
+	}
+	fm ul li {
+		float:left;
+		padding:3px 3px;
+		margin:2px;	
+	}
+	
+	
+	
+	men {
+		overflow: hidden;
+		
+	}
+	men ul {
+		list-style-type:none;
+		float:left;
+		padding:0px;
+	}
+	men ul li {
+		float:left;
+		padding:0px 20px;
+		font-size:14px;
+		margin:2px;	
+	}
+	
+	footer {
+		margin:10px;
+		text-align:center;
+		clear:both;
+		
+	}
+ 
+	/* para 980px o menos */
+	@media screen and (max-width:980px) {
+		.container {
+			width:98%;
+		}
+		section {
+			width:68%;
+		}
+	}
+ 
+	/* para 700px o menos */
+	@media screen and (max-width:700px) {
+		aside,section {
+			float:none;
+			width:96%;
+		}
+		section {
+			font-size:1.2em;
+		}
+		aside {
+			margin-top:5px;
+		}
+		
+	}
+ 
+	
+.img {
+height: auto;
+max-width: 100%;
+}
+a {
+	font-family:Verdana, Geneva, sans-serif;
+	font-style:inherit;
+	font-size:12px;
+	color:#FFF;
+}
+
+.clear:before, .clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+.clear {
+    *zoom: 1;
+}
+
+a#pull {
+    display: none;
+}
+nav {
+    height: 40px;
+    width: 100%;
+    background: #51301D;
+    position: relative;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+}
+
+nav li {
+    display: inline;
+    float:none;
+}
+
+nav a {
+    color: #FFF;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    line-height: 40px;
+}
+}
+
+nav li:last-child a {
+    border-right: 0;
+}
+
+nav a:hover, nav a:active {
+    background-color: #ED1C24;
+}
+@media only screen and (max-width : 500px) {
+    nav {
+        border-bottom: 0;
+        height: auto;
+    }
+
+    nav ul {
+        display: none;
+        height: auto;
+        width: 100%;
+    }
+
+    nav li {
+        width: 50%;
+        float: left;
+        position: relative;
+    }
+
+    nav a {
+        text-align: left;
+        width: 100%;
+        text-indent: 25px;
+    }
+
+    nav a#pull {
+        display: block;
+        background-color: #51301D;
+        width: 100%;
+        
+    }
+
+    nav a#pull:after {
+        content:"";
+        background: url('../images/nav-icon.png') no-repeat;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+    }
+}
+.Pie {
+		font-family:Verdana, Geneva, sans-serif;
+		font-size:15px;
+		padding:0px 20px;
+		color:#FFF;
+		}
+a.Pie:link {text-decoration:none; color: #ffffff;} /* Link no visitado*/
+a.Pie:visited {text-decoration:none; color:#ffffff} /*Link visitado*/
+a.Pie:active {text-decoration:none; color: #FFC52D;} /*Link activo*/
+a.Pie:hover {text-decoration:underline; color:#FFC52D;} /*Mause sobre el link.container section table tr td {
+	font-family: "Comic Sans MS", cursive;
+}

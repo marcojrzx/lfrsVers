@@ -1,0 +1,2 @@
+[14-Jun-2016 19:02:08 UTC] PHP Fatal error:  Call to undefined function obtenerfecha() in /home/jesus/public_html/sad/ajax-clientes.php on line 60
+[14-Jun-2016 19:03:28 UTC] PHP Fatal error:  Call to undefined function obtenerfecha() in /home/jesus/public_html/sad/ajax-clientes.php on line 59

@@ -1,0 +1,188 @@
+<? 
+
+include("Auth/nxs_auth.inc.php");
+$aut = new nxs_auth();
+
+if($_SESSION[id_clienteLof4]){
+	
+	header('Location: anuncio.php?id='.$_GET[id]);
+		exit;
+		
+		 }else{?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>:: LOFERS ::</title>
+<link href="css/Estilos.css" rel="stylesheet" type="text/css">
+<link href="css/estiloswdd.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+<head>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+	<!-- JS PARA EL SLIDER -->
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script> <!-- Modernizr -->
+	<script src="js/jquery.bxslider.min.js"></script>
+
+	<script src="js/jquery.validate.js" type="text/javascript"></script>
+  	<script language="JavaScript" src="js/funciones_calendar.js"></script>
+	<script language="JavaScript" src="js/funciones.js"></script>
+  	<script language="JavaScript" src="js/codigo.js"></script>
+
+
+<script language="javascript">
+function procesaForm(){
+	
+	if(document.getElementById('user').value=='' || document.getElementById('pass').value==''){
+		var parametros = {
+                "inputs" : "no",
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'autentificacion.php',
+                type:  'get',
+                beforeSend: function () {
+                        $("#respuesta").html("<div class='cargandoinfo'><img src='<? echo $_SESSION[url];?>imagenes/loading.gif'/></div>");
+                },
+                success:  function (response) {
+                        $("#respuesta").html(response);
+                }
+        });
+		
+	}else{
+		
+		var parametros = {
+                "user" : document.getElementById('user').value,
+                "pass" : document.getElementById('pass').value
+        };
+        $.ajax({
+                data:  parametros,
+                url:   'autentificacion.php',
+                type:  'post',
+                beforeSend: function () {
+                        $("#respuesta").html("<div class='cargandoinfo'><img src='<? echo $_SESSION[url];?>imagenes/loading.gif'/></div>");
+                },
+                success:  function (response) {
+                      if(response=='valido'){
+							eval("parent.location='anuncios.php'");
+						}else{
+							$("#respuesta").html(response);
+						}
+					  
+					   
+                }
+        });
+	
+		
+	}//else
+}//funcion
+
+</script>
+
+</head>
+ 
+<body background="images/Background.jpg" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="67" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/Header_Izq.png"></td>
+    <td width="100%" height="67" background="images/Top_Degradado.png"></td>
+    <td><img src="images/Header_Der.png"></td>
+  </tr>
+</table>
+
+ 
+<div class="container">
+ 
+	<section>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="images/Pantalla_White.png">
+  <tr>
+    <td>
+
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#51301D">
+					  <tr>
+					    <td align="right">
+<fm><center>
+			<ul>
+				<li><input type="text" placeholder="Username" required id="user" name="user" /></li>
+			
+				<li><input type="password" placeholder="Password" required id="pass" name="pass" onkeyup="if(event.keyCode==13){ procesaForm(); }" /></li>
+			
+				<li>
+               <a class="bt-entra" href="#" onclick="procesaForm();"><img src="images/Btn_Login.png"></a><div id="respuesta"></div></li>
+			</ul> 
+</center>
+</fm>
+</td>
+				      </tr>
+				  </table>
+<br><br><br><br>
+<center><img src="images/Logo_Home.png" class="img"></center>
+<br><br><br><br>
+
+<table width="181" height="50" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="51"><img src="images/icono_Face.png" width="51" height="50"></td>
+    <td width="14">&nbsp;</td>
+    <td width="51"><img src="images/icono_Twitter.png" width="51" height="50"></td>
+    <td width="14">&nbsp;</td>
+    <td width="51"><img src="images/icono_Instagram.png" width="51" height="50"></td>
+  </tr>
+</table>
+<br><br>		
+
+</td>
+  </tr>
+</table>
+		
+	</section>
+	<aside>
+<center><!-- EMPIEZA SLIDER (CARRUSEL DE IMAGENES) -->
+		<div class="carruselP">
+            <ul class="bxslider">
+                <?
+				 include("sad/funciones-bd.php");
+$myvar = new db_mysql;
+$myvar->conectarBd();
+?>
+                <? 
+				$sql=" select a.* from anuncios a, imagenesAnuncio i where i.id_anuncio=a.id_anuncio and a.activo=1 and a.id_statusAnuncio=1 group by a.id_anuncio  order by  RAND() limit 5"; 
+				$anuncios=$myvar->get_arreglo($sql);
+
+				
+				for($i=0; $i<count($anuncios); $i++){
+					
+					$sql2=" select * from imagenesAnuncio where activo=1 and id_anuncio=".$anuncios[$i]['id_anuncio']." order by fotoPrincipal desc limit 1";
+			 $imagen=$myvar->get_arreglo($sql2);
+			 ?>
+                <li><div class="fdoPback unPback<? echo $i;?>">
+                <style>.unPback<? echo $i;?> {
+    background-image: url("imagenes/imagenesAnuncio/<? echo $imagen[0]['imagen']?>");
+}</style>
+                <div class="txPback"><? echo $anuncios[$i]['titulo']?></div><div class="infoPback"><a href="login.php?id=<?  echo $anuncios[$i]['id_anuncio']?>">Información</a></div></div></li>
+                <? }?>
+            </ul>
+        </div>
+	<!-- TERMINA SLIDER (CARRUSEL DE IMAGENES) -->
+</center>
+</aside>
+ 
+	<footer>
+		
+	</footer>
+</div><br>
+<table width="100%" height="67" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/Footer_Izq.png"></td>
+    <td width="100%" height="67" background="images/Footer_Degradado.png"></td>
+    <td><img src="images/Footer_Der.png"></td>
+  </tr>
+</table>
+</body><!-- LAS ANIMACIONES PERSONALES DEL SITIO -->
+<script src="js/animaciones.js"></script>
+</html>
+<? }?>
