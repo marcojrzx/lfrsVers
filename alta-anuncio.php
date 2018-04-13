@@ -531,10 +531,10 @@ function cargaAmigos()
 									 $("#exampleModal").modal("show")
 									 $.ajax({
 						                type: "POST",
-						               url:"<? echo $urlprincipal?>combo-amigos.php",
+						               url:"<? echo $urlprincipal?>combo-amigos2.php",
 						                data: dataString,
 						              	success: function(data){
-						                    $(".modal-body").html(data);
+						                    $(".modal-body").append(data);
 
 						                }
 							 });
@@ -904,17 +904,15 @@ $sql2=" select * from anuncios where id_anuncio=".$idSimilar." limit 1";
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Crear grupo</h5>
       </div>
       <div class="modal-body">
-        ...
-      </div>
+        <label for="nombre"> Nombre del grupo:</label>
+				<input type="text" name="nombreG"  value="" style="border-style: solid;border-width: 2px;" >
+		 </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:rgb(154, 154, 154) ">Cerrar</button>
+        <button type="button" class="btn btn-primary" style="background-color:rgb(119, 36, 185)">Guardar</button>
       </div>
     </div>
   </div>
