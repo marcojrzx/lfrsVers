@@ -52,6 +52,7 @@
 
 <!-- CSS para menu responsivo -->
 <link href="<? echo $urlprincipal?>css/menu-r2.css" rel="stylesheet" type="text/css">
+<link href="<? echo $urlprincipal?>css/bootstrap.css" rel="stylesheet" type="text/css">
 
 <link href="<? echo $urlprincipal?>css/jquery.bxslider.css" rel="stylesheet" type="text/css">
 <!--link href="css/nav.css" rel="stylesheet" type="text/css"-->
@@ -62,7 +63,7 @@
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    <!-- JS PARA COMPARTIR WHATSAPP -->
 <script type="text/javascript" src="<? echo $urlprincipal?>js/whatsapp-button.js"></script>
- 
+
 	<!-- JS PARA EL SLIDER -->
 	<script src="<? echo $urlprincipal?>js/vendor/modernizr-2.6.2.min.js"></script> <!-- Modernizr -->
 	<script src="<? echo $urlprincipal?>js/jquery.bxslider.min.js"></script>
@@ -70,7 +71,8 @@
 	<script src="<? echo $urlprincipal?>js/jquery.validate.js" type="text/javascript"></script>
   	<script language="JavaScript" src="<? echo $urlprincipal?>js/funciones_calendar.js"></script>
 	<script language="JavaScript" src="<? echo $urlprincipal?>js/funciones.js"></script>
-  	<script language="JavaScript" src="<? echo $urlprincipal?>js/codigo.js"></script>
+  <script language="JavaScript" src="<? echo $urlprincipal?>js/codigo.js"></script>
+  <script language="JavaScript" src="<? echo $urlprincipal?>js/bootstrap.min.js"></script>
 
 
 <style type="text/css">
@@ -101,11 +103,11 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
 </head>
- 
+
 <body>
 
 
-<? $sql2=" select * from clientes where activo=1 and id_cliente=".$_SESSION[id_clienteLof4]." limit 1"; 
+<? $sql2=" select * from clientes where activo=1 and id_cliente=".$_SESSION[id_clienteLof4]." limit 1";
 $clienteACTIVO=$myvar->get_arreglo($sql2);
 ?>
 <div class="cabHeaderP">
@@ -115,25 +117,25 @@ $clienteACTIVO=$myvar->get_arreglo($sql2);
         	<img src="<? echo $urlprincipal?>images/menu1.png" class="p1izq">
         </td>
         <td width="100%">
-        
+
         	<div class="c0cen">
             	<? if($_SESSION[id_clienteLof4]){?><? if($clienteACTIVO[0][foto]!=''){?>
         				<div class="imgLogoPers" style="background-image:url(<? echo $urlprincipal?>imagenes/clientes/<? echo $clienteACTIVO[0][foto]?>);">
-                        
+
                         </div>
 				<? }?>
-                
+
                 <div class="dropdown">
                       <button onclick="myFunction()" class="dropbtn">
                      <? if($clienteACTIVO[0][ocultarNom]==1){// si lo quiere ocultar
-						?> 
+						?>
 						<? echo $clienteACTIVO[0][nombre]." ".$clienteACTIVO[0][apellidos];?>
-					   
+
 						<? }else{ ?>
 						<? echo $clienteACTIVO[0][nick]; ?>
-					   
+
 						<? }
-						?> 
+						?>
                       </button>
                       <div id="myDropdown" class="dropdown-content">
                         <a href="<? echo $urlprincipal?>mi-sitio">Mi sitio</a>
@@ -147,16 +149,16 @@ $clienteACTIVO=$myvar->get_arreglo($sql2);
                     <div class="dropdown1">
                       <button onclick="myFunction1()" class="dropbtn1">
                      	<? if($clienteACTIVO[0][ocultarNom]==1){// si lo quiere ocultar
-						?> 
+						?>
 						... <!--img class="icoMenuP" src="images/icomenu.png"-->
                         <!--? echo $clienteACTIVO[0][nombre]." ".$clienteACTIVO[0][apellidos];?-->
-					   
+
 						<? }else{ ?>
 						... <!--img class="icoMenuP" src="images/icomenu.png"-->
                         <!--? echo $clienteACTIVO[0][nick]; ?-->
-					   
+
 						<? }
-						?> 
+						?>
                       </button>
                       <div id="myDropdown1" class="dropdown-content1">
                         <a href="<? echo $urlprincipal?>perfil">Mi perfil</a>
@@ -169,7 +171,7 @@ $clienteACTIVO=$myvar->get_arreglo($sql2);
                        	 </div>
                     </div>
                      <? }?>
-                    
+
                     <div class="logointerno">
                     <a href="<? echo $urlprincipal?>mi-sitio">
                     <img src="<? echo $urlprincipal?>images/Logo3.png" border="0">
@@ -180,11 +182,11 @@ $clienteACTIVO=$myvar->get_arreglo($sql2);
                     <img src="<? echo $urlprincipal?>icon-normal.png" border="0">
                     </a>
                     </div>
-                
+
                 <div class="traductor"><?php //include("traductor.php"); ?></div>
     			<!--a href="index.php"><img src="images/Logo3.png" border="0"></a-->
         	</div>
-           
+
         </td>
         <td class="tdNO">
         	<img src="<? echo $urlprincipal?>images/menu1-03.png" class="p2der">
@@ -192,7 +194,7 @@ $clienteACTIVO=$myvar->get_arreglo($sql2);
       </tr>
 </table>
 </div>
-  
- 
+
+
 <div class="container">
 	<section>
