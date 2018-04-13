@@ -534,7 +534,9 @@ function cargaAmigos()
 						               url:"<? echo $urlprincipal?>combo-amigos2.php",
 						                data: dataString,
 						              	success: function(data){
+															if(!$(".modal-body").html().includes("Amigos")){
 						                    $(".modal-body").append(data);
+																}
 
 						                }
 							 });
