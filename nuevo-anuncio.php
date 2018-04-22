@@ -5,17 +5,11 @@ $urlprincipal="http://lofers.club/";
 if (!$aut->revisar()){
 	header("Location: ".$urlprincipal."index.html?msg=3");
 }
-
 include("sad/funciones-bd.php");
 include("sad/funciones.php");
 include("thumb.php");
-
-
 $myvar = new db_mysql;
 $myvar->conectarBd();
-
-
-
 if ($_POST['status']) {
 
 		$sql='insert into anuncios (id_cliente,id_categoriaAnuncio,id_statusAnuncio,id_tipoPago,id_tipoAnuncio,id_aquienComparte,id_municipio,id_estado,id_pais,fechaIngreso,ubicacion,monto,caracteristicas,titulo,nombre,lugarSuceso,fechaSuceso,activo) values ("'.$_SESSION[id_clienteLof4].'","'.$_POST['id_categoriaAnuncio'].'",1,"'.$_POST['id_tipoPago'].'","'.$_POST['id_tipoAnuncio'].'","'.$_POST['id_aquienComparte'].'","'.$_POST['id_municipio'].'","'.$_POST['id_estado'].'",2,"'.date("Y-m-d H:i:s").'","'.$_POST['ubicacion'].'","'.$_POST['monto'].'","'.$_POST['caracteristicas'].'","'.$_POST['titulo'].'","'.$_POST['nombre'].'","'.$_POST['lugarSuceso'].'","'.$_POST['fechaSuceso'].'",1)';
@@ -31,12 +25,6 @@ if ($_POST['status']) {
 				$myvar->execute($sql);
 
 				}
-
-				if($_POST['id_aquienComparte']==6){// comparte a un amigo en especifico
-			      echo "<script> console.log('opcion 6'); </script>";
-
-					}
-
 
 		////INSERT IMAGENES
 		$m=1;
@@ -55,7 +43,6 @@ if ($_POST['status']) {
 
 				$sql2=" select * from imagenesAnuncio  order by id_imagenAnuncio desc limit 1";
 				$cliente=$myvar->get_arreglo($sql2);
-
 
 				$nuevaa=$cliente[0][id_imagenAnuncio]+1;
 				$nueva=$cliente[0][id_imagenAnuncio]+1;
@@ -102,7 +89,6 @@ if ($_POST['status']) {
 
 				$sql2=" select * from videos  order by id_imagenAnuncio desc limit 1";
 				$cliente=$myvar->get_arreglo($sql2);
-
 				$nuevaa=$cliente[0][id_video]+1;
 				$nueva=$cliente[0][id_video]+1;
 				$nueva.=".".$extension[1];
@@ -119,21 +105,14 @@ if ($_POST['status']) {
 		}//while
 
 		header("Location: ".$urlprincipal."nuevo/iniciando");
-
 		exit();
 }//if submit
-
-
 $html = new html;
-
 $tituloGL="Lofers.club | Lo pierdes, lo buscas, lo encuentras";
 $imagenGL="imagenes/logoredes.png";
 $descripcionGL="Comunidad para reportar pérdidas y hallazgos, personas, mascotas, objetos y cosas desaparecidas y encontradas.";
 $keywordsGL="lofers.club,lofers,ayuda para encontrar,encontré,encontre,perdí,perdi,pérdida, pérdidas,estoy buscando,busco,acabo de encontrar,personas perdidas,perdi celular,busco perrito,buscando,buscamos,hallamos,encontramos,objetos perdidos,mascotas perdidas,extraviados,extraviadas,ayuda para buscar,perdimos un,perdimos a nuestro,perdimos a nuestra,perdimos una,perdimos unos,perdimos unas,perdi un, perdi una, perdi unos,perdi unas,localizar,ayuda,apoyo,donde puedo encontrar,reportar,celulares perdidos,perdi mis llaves,lost and found,lose and find,lose,find,found,lost,lost items,missing,missing items,dissapeareance of items,loss of items,lost property,abandoned,strayed,taken,tainted,idle,miss,drop,locate,located,traced,trace,guess,encounter,spot,missing cellphone,missing my,lost my,found a";
-
-
 include "funciones-arriba.php";
-
 ?>
 
 <script type="text/javascript">
@@ -142,7 +121,6 @@ include "funciones-arriba.php";
   }*/
 
 $(document).ready(function(){
-
     $("#formulario").validate({
         rules: {
             id_categoriaAnuncio: { required: true},
@@ -161,7 +139,6 @@ $(document).ready(function(){
         }
     });
 });
-
 
 		//////////////////////////////////////////cargar el select dependiente
 function cargaEstados()
@@ -186,11 +163,7 @@ function cargaEstados()
 
                 }
 			 });
-
 }
-
-
-
 		//////////////////////////////////////////cargar el select dependiente
 function cargaMunicipios()
 {
@@ -214,9 +187,7 @@ function cargaMunicipios()
 
                 }
 	 });
-
 }
-
 	//////////////////////////////////////////cargar el select dependiente
 function cargaAmigos()
 {
@@ -242,9 +213,7 @@ function cargaAmigos()
                 }
 	 });
 	  }
-
 }
-
 </script>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" background="images/Pantalla_White.png">

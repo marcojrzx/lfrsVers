@@ -103,6 +103,15 @@ if ($_POST['status']) {
 							}//for
 
 						}
+						if($_POST['id_aquienComparte']==6){// comparta a grupo o grupos
+						  	$dd = $_POST['check_list'];
+									for ($i=0; $i < count($dd) ; $i++) {
+										$sql='insert into grupo_publicacion (id_pub,id_grupo) values ("'.$idcli.'","'.$dd[$i].'")';
+										$myvar->execute($sql);
+									}
+
+							}
+
 
 			////// S I M I L A R E S
 
@@ -914,10 +923,50 @@ $sql2=" select * from anuncios where id_anuncio=".$idSimilar." limit 1";
 		 </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:rgb(154, 154, 154) ">Cerrar</button>
-        <button type="button" class="btn btn-primary" style="background-color:rgb(119, 36, 185)">Guardar</button>
+        <button type="button" id="guardarG" class="btn btn-primary" style="background-color:rgb(119, 36, 185)">Guardar</button>
       </div>
     </div>
   </div>
 </div>
 
 <script src="<? echo $urlprincipal?>js/animaciones.js"></script>
+<script type="text/javascript">
+	$("#guardarG").on("click", function(){
+		var nomb = $("input[name=nombreG]").val();
+		var ides = [];
+		$("input:checkbox[name=checks_box]:checked").each(function(){
+			 var x = $(this).attr("id");
+			 ides.push(x);
+		})
+
+		$.ajax({
+			type:"POST",
+			url:"<? echo $urlprincipal?>miembro-grupo.php",
+			data:{nombre: nomb, ideA: ides, test:1},
+			success: function(data){
+				$("#divAmigos").html("");
+				$("#divAmigos").html(data);
+				 var x = "<button id='nwG'> Nuevo Grupo </button>"
+				 $("#divAmigos").append(x);
+				 $("#exampleModal").modal("hide");
+				 $("#nwG").on("click", function(){
+					$("#exampleModal").modal("show")
+					$.ajax({
+									 type: "POST",
+									url:"<? echo $urlprincipal?>combo-amigos2.php",
+									 data: dataString,
+									 success: function(data){
+										 if(!$(".modal-body").html().includes("Amigos")){
+											 $(".modal-body").append(data);
+											 }
+
+									 }
+			});
+				 })
+			}
+		})
+
+
+
+	})
+</script>

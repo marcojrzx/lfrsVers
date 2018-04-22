@@ -22,8 +22,8 @@ $myvar->conectarBd();
 					 $sql=" select * from clientes where id_cliente=".$tipos[$i][id_cliente];
 	$c=$myvar->get_arreglo($sql);
 					 ?>
-                 <input type="checkbox" name="amigoCompartir<? echo $tipos[$i][id_cliente]?>"
-                 id="amigoCompartir<? echo $tipos[$i][id_cliente]?>" value="1"
+                 <input type="checkbox" name="checks_box"
+                 id="<? echo $tipos[$i][id_cliente]?>" value="1"
                  />
 				 <?
 				 if($c[0][ocultarNom]==1){// si lo quiere ocultar
