@@ -67,11 +67,47 @@ $.ajax({
 <? include "menu-interno.php";?>
 <? include "menu2Aux.php";?>
 
+<div class="modal fade" id="modalEl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar grupo</h5>
+
+      </div>
+      <div class="modal-body" style="color:black">
+        <h4>Si eliminas este grupo las publicaciones asociadas a el tambien se eliminaran</h4>
+				<h4>¿Quieres eliminar este grupo?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button id="eli" style="background-color:rgb(251, 63, 63)"type="button" class="btn btn-primary">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar grupo</h5>
+
+      </div>
+      <div id="mEdit" class="modal-body" style="color:black">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button id="guardarE" style="background-color:rgb(197, 63, 251)"type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <center>
 
 	<table id="divAmigos">
-	 
+
 	</table>
 </center>
 
@@ -120,4 +156,78 @@ $.ajax({
         }
 
 
+</script>
+<script type="text/javascript">
+	function polo(eit){
+		var idee  = eit;
+		$.ajax({
+			type:"POST",
+			url:"<? echo $urlprincipal?>edit-grupo.php",
+			data:{idGrupo:idee},
+			success:function(data){
+				console.log(data);
+				$("#mEdit").html("");
+				$("#mEdit").append(data);
+
+				$("#modalEdit").modal("show");
+				$("#guardarE").attr("onclick", "guardarE("+idee+")");
+			}
+		})
+	}
+
+	function modalE(id) {
+		var ide = id;
+		$("#modalEl").modal("show");
+
+		$("#eli").on("click", function(){
+			console.log("es el ide "+ide);
+			$.ajax({
+				type:"POST",
+				url:"<? echo $urlprincipal?>delete-grupo.php",
+				data:{idGrupo:ide},
+				success:function(data){
+					$("#modalEl").modal("hide");
+					$("#"+ide).remove();
+				}
+			})
+		})
+	}
+
+	function eliminarBotonMiembro(idU, idG){
+  $.ajax({
+		type:"POST",
+		url:"<? echo $urlprincipal?>eliminar-miembro.php",
+		data:{idGrupo:idG ,idCliente:idU},
+		success: function(data){
+			$("#"+idU).remove();
+		}
+	})
+
+	}
+
+	 function guardarE(idEd){
+		 console.log("guardarE");
+		var nombre = $("#newNombre").val();
+		var ides = [];
+		$("input:checkbox[name=check_listEdit]:checked").each(function(){
+			 var x = $(this).val();
+			 console.log(x);
+			 ides.push(x);
+		})
+		console.log(ides);
+
+		$.ajax({
+			type:"POST",
+			url:"<? echo $urlprincipal?>edits-grupo.php",
+			data:{nombre:nombre, idGrupoE:idEd, arreglo:ides},
+			succes: function(){
+
+			}
+		})
+
+
+	}
+
+
+	//eliminarBotonMiembro(1,92
 </script>

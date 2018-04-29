@@ -56,7 +56,7 @@ for ($i=0; $i < count($temp2); $i++) {
 
 			 <tr id="<? echo $tipos[$i][id_Group] ?>">
 			    <td><h4 > <? echo $tipos[$i][name_Group] ?></h4</td>
-			    <td><a class="btop cf"><button onclick="polo()" style="background-color: #b1027e;border: none;"> Editar </button></a><a class="btop cf"><button onclick="modalE(<? echo $tipos[$i][id_Group] ?>)" style="background-color: #b1027e;border: none;"> Eliminar </button></a></td>
+			    <td><a class="btop cf" style="background-color: #9f9f9f"><button onclick="polo(<? echo $tipos[$i][id_Group] ?>)" style="background-color: #9f9f9f;border: none;"> Editar </button></a><a class="btop cf"><button onclick="modalE(<? echo $tipos[$i][id_Group] ?>)" style="background-color: #b1027e;border: none;"> Eliminar </button></a></td>
 
   		</tr>
 

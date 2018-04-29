@@ -8,7 +8,6 @@ $myvar = new db_mysql;
 $myvar->conectarBd();
 
 
-
 	$sql="update Grupo set name_Group='".$_POST[nombre]."' where id_Group=".$_POST[idGrupoE]." ";
 
 	$tipos=$myvar->get_arreglo($sql);
@@ -17,7 +16,7 @@ $myvar->conectarBd();
 		$sql3='insert into grupo_miembros (id_relacion , id_group, id_cliente) values ( "null" ,"'.$_POST[idGrupoE].'","'.$temp2[$i].'") ';
 	  $myvar->execute($sql3);
 	}
- 
+
 
 
  ?>
